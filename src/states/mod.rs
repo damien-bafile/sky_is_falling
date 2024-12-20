@@ -6,9 +6,8 @@ pub use game_over::GameOverState;
 pub use gameplay::GameplayState;
 pub use menu::MenuState;
 
-pub trait State {
-    fn update(&mut self, dt: f32);
+pub trait GameState {
+    fn update(&mut self);
     fn draw(&self);
-    fn handle_input(&mut self, input: Input);
     fn next(&self) -> Option<Box<dyn State>>;
 }

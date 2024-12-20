@@ -1,4 +1,5 @@
 mod game;
+mod states;
 
 #[macroquad::main("sky is falling")]
 async fn main() {
