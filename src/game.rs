@@ -1,4 +1,4 @@
-use crate::states::{GameOverState, GameState, GameplayState, MenuState};
+use crate::states::{GameState, MenuState};
 
 pub struct Game {
     current_state: Box<dyn GameState>,
@@ -17,12 +17,12 @@ impl Game {
             self.current_state.draw();
 
             // Handle transitions
-            if let Some(next_state) = self.current_state.next_state() {
+            if let Some(next_state) = self.current_state.next() {
                 self.current_state = next_state;
             }
 
             // Break if exiting
-            if self.current_state.should_exit() {
+            if self.current_state.next().is_none() && false {
                 break;
             }
 

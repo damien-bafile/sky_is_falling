@@ -1,5 +1,3 @@
-use macroquad::ui::InputHandler;
-
 use crate::states::GameState;
 
 pub struct MenuState;
@@ -32,8 +30,8 @@ impl GameState for MenuState {
 
     fn next(&self) -> Option<Box<dyn GameState>> {
         // Return the next game state
-        if InputHandler::is_key_pressed(macroquad::input::KeyCode::Enter) {
-            Some(Box::new(GameState::new()))
+        if macroquad::input::is_key_pressed(macroquad::input::KeyCode::Enter) {
+            Some(Box::new(crate::states::GameplayState::new()))
         } else {
             None
         }

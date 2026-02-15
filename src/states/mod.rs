@@ -9,5 +9,5 @@ pub use menu::MenuState;
 pub trait GameState {
     fn update(&mut self);
     fn draw(&self);
-    fn next(&self) -> Option<Box<dyn State>>;
+    fn next(&self) -> Option<Box<dyn GameState>>;
 }
